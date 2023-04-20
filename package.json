@@ -1,0 +1,14 @@
+{
+    "name": "chatgpt-api-test",
+    "version": "1.0.0",
+    "devDependencies": {
+        "@types/node": "18.15.12",
+        "@types/ramda": "0.29.0",
+        "typescript": "5.0",
+        "ts-node": "^10.9.1"
+    },
+    "dependencies": {
+        "openai": "^3.2.1",
+        "ramda": "0.29"
+    }
+}
