@@ -2,10 +2,12 @@ import { Configuration, OpenAIApi, ChatCompletionRequestMessage, CreateChatCompl
 import readline from 'readline';
 import { isNil } from 'ramda';
 
+const max_token = 4096;
+
 // 初期値に役割を与える
 const chatMessage: Array<ChatCompletionRequestMessage> = [
-    //{ role: 'system', content: 'あなたは女子高校生です。可愛い口調で答えてください'}
-    { role: 'system', content: 'あなたはツンデレの女の子役で答えてください'}
+    { role: 'system', content: 'あなたは女子高校生です。可愛い口調で答えてください'}
+    //{ role: 'system', content: 'あなたはツンデレの女の子役で答えてください'}
 ];
 
 // プロンプト入力
@@ -50,6 +52,10 @@ const openai = new OpenAIApi(configuration);
 
         console.log('assistant>');
         console.log(assistantContext);
+        const prompt_tokens = responseData.usage?.prompt_tokens;
+        if (isNil(prompt_tokens) ? 0 :  prompt_tokens > max_token * 0.9) {
+            chatMessage.splice(1, 2);
+        }
         chatMessage.push({ role: 'assistant', content: isNil(assistantContext) ? "" : assistantContext})
     }
 })();
