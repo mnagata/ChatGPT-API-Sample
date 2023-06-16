@@ -1,5 +1,5 @@
 {
-    "name": "chatgpt-api-test",
+    "name": "chatgpt-api-sample",
     "version": "1.0.0",
     "devDependencies": {
         "@types/node": "18.15.12",
@@ -8,7 +8,7 @@
         "ts-node": "^10.9.1"
     },
     "dependencies": {
-        "openai": "^3.2.1",
-        "ramda": "0.29"
+        "openai": "3.3.0",
+        "ramda": "0.29.0"
     }
 }
